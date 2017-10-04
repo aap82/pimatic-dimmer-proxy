@@ -53,6 +53,7 @@ module.exports = (env) ->
       if @config.sync_name
         @updateName(@device.name)
         @device.on "nameChanged", @updateName
+      console.log device._state
       @_setState(device._state)
       @_setDimlevel(device._dimlevel)
       return null
