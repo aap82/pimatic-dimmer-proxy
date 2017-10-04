@@ -53,6 +53,7 @@ module.exports = (env) ->
       if @config.sync_name
         @updateName(@device.name)
         @device.on "nameChanged", @updateName
+      @_setState(device._state)
       @_setDimlevel(device._dimlevel)
       return null
     deviceChanged: (newDevice) =>
@@ -65,20 +66,22 @@ module.exports = (env) ->
       @plugin.removeDevice(@id)
     turnOn: ->
       return Promise.resolve() unless @device?
-      return @device.turnOn()
+      return @device.changeStateTo(yes)
     turnOff: ->
       return Promise.resolve() unless @device?
-      return @device.turnOff()
+      return @device.changeStateTo(no)
     toggle: ->
       return Promise.resolve() unless @device?
-      return @device.toggle()
+      return @device.getState().then( (state) => @device.changeStateTo(!state) )
     changeStateTo: (state) ->
       return Promise.resolve() unless @device?
       return @device.changeStateTo(state)
-    changeDimlevelTo: (state) ->
+    changeDimlevelTo: (level) ->
       return Promise.resolve() unless @device?
-      return @device.changeDimlevelTo(state)
-    getState: -> Promise.resolve(@_state)
+      return @device.changeDimlevelTo(level)
+    getDimlevel: -> return @device.getDimlevel()
+    getState: -> return @device.getState()
+
     destroy: ->
       if @device?
         @device.removeListener 'changed', @deviceChanged
