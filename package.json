@@ -9,5 +9,14 @@
   "main": "dimmer-proxy",
   "configSchema": "dimmer-proxy-config-schema.coffee",
   "author": "ap",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/aap82/pimatic-dimmer-proxy",
+  "bugs": {
+    "url": "https://github.com/aap82/pimatic-dimmer-proxy/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aap82/pimatic-dimmer-proxy.git"
+  },
+  "dependencies": {}
 }
