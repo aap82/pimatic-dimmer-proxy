@@ -89,13 +89,4 @@ module.exports = (env) ->
         @device = null
       super()
 
-
-
-
-
-
-
-
-
-
   return plugin
