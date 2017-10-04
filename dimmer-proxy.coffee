@@ -54,8 +54,8 @@ module.exports = (env) ->
         @updateName(@device.name)
         @device.on "nameChanged", @updateName
       console.log device._state
-      @_setState(device._state)
       @_setDimlevel(device._dimlevel)
+      @_setState(device._state)
       return null
     deviceChanged: (newDevice) =>
       console.log 'device changed'
