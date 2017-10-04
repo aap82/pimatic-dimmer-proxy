@@ -1,0 +1,13 @@
+{
+  "name": "pimatic-dimmer-proxy",
+  "version": "0.0.1",
+  "files": [
+    "dimmer-proxy-config-schema.coffee",
+    "utils/"
+  ],
+  "description": "pimatic plugin to control existing dimmer devices",
+  "main": "dimmer-proxy",
+  "configSchema": "dimmer-proxy-config-schema.coffee",
+  "author": "ap",
+  "license": "GPL-3.0"
+}
