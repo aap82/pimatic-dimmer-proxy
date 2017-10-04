@@ -53,16 +53,13 @@ module.exports = (env) ->
       if @config.sync_name
         @updateName(@device.name)
         @device.on "nameChanged", @updateName
-      console.log device._state
       @_setDimlevel(device._dimlevel)
       @_setState(device._state)
       return null
     deviceChanged: (newDevice) =>
-      console.log 'device changed'
       @device = null
       @setDevice(newDevice)
     deviceRemoved: =>
-      console.log 'device deleted'
       @device = null
       @plugin.removeDevice(@id)
     turnOn: ->
@@ -84,6 +81,7 @@ module.exports = (env) ->
     _setState: (state) =>
       @_state = state
       @emit "state", state
+
     _setDimlevel: (level) =>
       console.log level
       @_dimlevel = level
