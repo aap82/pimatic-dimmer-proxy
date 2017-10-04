@@ -66,19 +66,19 @@ module.exports = (env) ->
       @plugin.removeDevice(@id)
     turnOn: ->
       return Promise.resolve() unless @device?
-      return @device.changeStateTo(yes)
+      @device.changeStateTo(yes)
     turnOff: ->
       return Promise.resolve() unless @device?
-      return @device.changeStateTo(no)
+      @device.changeStateTo(no)
     toggle: ->
       return Promise.resolve() unless @device?
-      return @device.getState().then( (state) => @device.changeStateTo(!state) )
+      @device.getState().then( (state) => @device.changeStateTo(!state) )
     changeStateTo: (state) ->
       return Promise.resolve() unless @device?
-      return @device.changeStateTo(state)
+      @device.changeStateTo(state)
     changeDimlevelTo: (level) ->
       return Promise.resolve() unless @device?
-      return @device.changeDimlevelTo(level)
+      @device.changeDimlevelTo(level)
 
 
     destroy: ->
