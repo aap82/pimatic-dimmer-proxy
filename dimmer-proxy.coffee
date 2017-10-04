@@ -79,8 +79,7 @@ module.exports = (env) ->
     changeDimlevelTo: (level) ->
       return Promise.resolve() unless @device?
       return @device.changeDimlevelTo(level)
-    getDimlevel: -> return @device.getDimlevel()
-    getState: -> return @device.getState()
+
 
     destroy: ->
       if @device?
