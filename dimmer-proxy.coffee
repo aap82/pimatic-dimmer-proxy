@@ -81,6 +81,15 @@ module.exports = (env) ->
       return Promise.resolve() unless @device?
       @device.changeDimlevelTo(level)
 
+    _setState: (state) =>
+      @_state = state
+      @emit "state", state
+    _setDimlevel: (level) =>
+      console.log level
+      @_dimlevel = level
+      @emit "dimlevel", level
+
+
 
     destroy: ->
       if @device?
